@@ -22,9 +22,9 @@ public class JdbcTest{
 	@Autowired
 	private CountryDao countryDao;
 	
-    private List<Country> expectedCountryList = new ArrayList<Country>();
-    private List<Country> expectedCountryListStartsWithA = new ArrayList<Country>();
-    private Country countryWithChangedName = new Country(1, "Russia", "RU");
+    private final List<Country> expectedCountryList = new ArrayList<Country>();
+    private final List<Country> expectedCountryListStartsWithA = new ArrayList<Country>();
+    private final Country countryWithChangedName = new Country(1, "Russia", "RU");
 
     @Before
     public void setUp() throws Exception {

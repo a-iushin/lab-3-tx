@@ -1,15 +1,16 @@
 package com.luxoft.springdb.lab3.model;
 
+import lombok.Data;
+
 import java.io.Serializable;
+import java.util.Objects;
 
-public class Country implements Serializable{
+@Data
+public class Country implements Serializable {
+    private static final long serialVersionUID = 1L;
 
-	private static final long serialVersionUID = 1L;
-
-	private int id;
-
+    private int id;
     private String name;
-
     private String codeName;
 
     public Country() {
@@ -26,30 +27,6 @@ public class Country implements Serializable{
         this.codeName = codeName;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCodeName() {
-        return codeName;
-    }
-
-    public void setCodeName(String codeName) {
-        this.codeName = codeName;
-    }
-
     public String toString() {
         return id + ". " + name + " (" + codeName + ")";
     }
@@ -60,10 +37,8 @@ public class Country implements Serializable{
 
         Country country = (Country) o;
 
-        if (codeName != null ? !codeName.equals(country.codeName) : country.codeName != null) return false;
-        if (name != null ? !name.equals(country.name) : country.name != null) return false;
-
-        return true;
+        if (!Objects.equals(codeName, country.codeName)) return false;
+        return Objects.equals(name, country.name);
     }
 
     public int hashCode() {
